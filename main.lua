@@ -1,3 +1,5 @@
+--Made by Rob Chiocchio with love :3
+
 R = 0
 G = 155
 B = 255
