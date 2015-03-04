@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="DungeonCrawl32" tilewidth="32" tileheight="32">
+  <image source="../tileset.png" width="2048" height="1536"/>
+ </tileset>
+ <layer name="Black" width="32" height="24" opacity="0">
+  <data encoding="base64" compression="zlib">
+   eJztwwENAAAMw6Cam39LF3JIWDVVVfXFA/LVzwE=
+  </data>
+ </layer>
+ <layer name="Background" width="32" height="24">
+  <data encoding="base64" compression="zlib">
+   eJztlW0LwyAMhAv96YnRn72NeezZMWi+rwFRq+Yurz2OW275yDiPYz5Hne/1a14Ysc/HHvq29l3dn3hTeHclxE3oyP1eerQvnAtrgJPm0cR3vrnfJngF9IpTgtMwDhP8roR4tFN8uJZ95FX4HuBSTfvpr8S6wEfr+nEe4LJwX3Z17A/ooe/n+W2X+193Fvbk1vG/2609uYRhus9ZB/KFdHXwf+W/Ys9aYH257xM85JcOPmPKmXmcxqlsFhfWgHhfSUAP/c+Yas26S8NnH2JOd+0PYNCn5OH+Za8UD6+djv0JzrTRe2OB27S99+Bu/Jnf0/RSF++M8ztvie09pIPPPsre7TVOTowb8y2MXwefuV6mn/9G58S8YE6wXjv4xJQfAnp88J9Bexn/1cS/5b/kAbDdzQQ=
+  </data>
+ </layer>
+ <layer name="Floor/Walls" width="32" height="24">
+  <data encoding="base64" compression="zlib">
+   eJztleEKwCAIhPuR2vs/8Rib7DgGHYH0pw8kFy7PObK1w+HDe2vRn3W8ZrDmPsY4xQX5GXvbjIB3jHJxTiNz8gN05ZkzBuW0H5+/A+tI3Q6W5yr5q1DqV3q0ilKbonEVtf9V7K5f6W1l/Ur+yv9PvX+q2N1/E85WYlbZff+o/z/PDJxtPBMC9tPnZ5wJikaccZkPZxvrwvk6KI51HQ7IBZpzBdk=
+  </data>
+ </layer>
+</map>

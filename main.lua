@@ -1,15 +1,14 @@
 --Made by Rob Chiocchio with love :3
+love.window.setMode(1024,768, {vsync=true, borderless=true})
 
-R = 0
-G = 155
-B = 255
+love.filesystem.load("tiledmap.lua")()
 
---backgroundR = love.math.random(255) / 4
---backgroundG = love.math.random(255) * 2
---backgroundB = love.math.random(255) / 2
-backgroundR = 255
-backgroundB = 255
-backgroundG = 255
+	love.graphics.setBackgroundColor(0x80,0x80,0x80)
+	TiledMap_DrawNearCam(gCamX,gCamY)
+
+function love.load()
+	TiledMap_Load("map/map01.tmx")
+end
 
 --player.onGround = true
 --player.velY = 0
@@ -17,37 +16,40 @@ backgroundG = 255
 
 os_string = love.system.getOS( )
 if os_string == "OS X" or "Windows" or "Linux" then
-	keyJump = love.keyboard.isDown("space" or "up")
-	keyLeft = love.keyboard.isDown("a" or "left")
-	keyRight = love.keyboard.isDown("d" or "right")
 	keyboard = true
 	showButtons = false
 else
-	keyJump = false
 	keyboard = false
 	showButtons = true
 end
 
+function love.keyreleased( key )
+	gKeyPressed[key] = nil
+end
+
+function love.keypressed( key, unicode ) 
+	gKeyPressed[key] = true 
+	if (key == "escape") then os.exit(0) end
+	if (key == " ") then -- space = next mal
+		gMapNum = (gMapNum or 1) + 1
+		if (gMapNum > 10) then gMapNum = 1 end
+		TiledMap_Load(string.format("map/map%02d.tmx",gMapNum))
+		gCamX,gCamY = 100,100
+	end
+end
+
+function love.update( dt )
+	local s = 500*dt
+	if (gKeyPressed.up) then gCamY = gCamY - s end
+	if (gKeyPressed.down) then gCamY = gCamY + s end
+	if (gKeyPressed.left) then gCamX = gCamX - s end
+	if (gKeyPressed.right) then gCamX = gCamX + s end
+end
 
 function love.draw()
-	R = love.mouse.getX()
-	G = love.mouse.getY()
-	B = love.mouse.getX() + love.mouse.getY()
-	
-	love.graphics.setBackgroundColor(backgroundR,backgroundG,backgroundB);
-	
-	--backgroundR = love.math.random(255)
-	--backgroundG = love.math.random(255)
-	--backgroundB = love.math.random(255)
-	love.graphics.clear();	
-
-	love.graphics.setColor(R,G,B);
-	if keyboard == true then
-    	love.graphics.print("True", 400, 300)
-    else
-    	love.graphics.print("False", 400, 300)
-    end
-
+	love.graphics.print('arrow-keys=scroll, space=next map', 50, 50)
+    love.graphics.setBackgroundColor(0x80,0x80,0x80)
+    TiledMap_DrawNearCam(gCamX,gCamY)
 end
 --[[ GRAVITY
 if (not player.onGround) then
